@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ack-cube
+  name: ack-cube-svc
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: ack-cube # You must specify the value of the matchLabels parameter in the YAML file that is used to create the Deployment. 
+  type: LoadBalancer
